@@ -81,6 +81,30 @@
             "packages": {},
             "requests": {}
           }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.globals.set(\"id\", \"1\");\r",
+              "pm.variables.set(\"name\",\"Test\");\r",
+              "console.log(\"Hello World\");\r",
+              "\r",
+              "try {\r",
+              "    const response = await pm.sendRequest({\r",
+              "        url: \"https://restful-booker.herokuapp.com/booking/1\",\r",
+              "        method: \"GET\"\r",
+              "    });\r",
+              "\r",
+              "    console.log(response.json());\r",
+              "} catch (err) {\r",
+              "    console.error(err);\r",
+              "}"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
         }
       ],
       "request": {
